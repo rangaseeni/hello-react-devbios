@@ -14,7 +14,7 @@ export class DisplayBios extends Component {
     }
     render() {
         return (
-            this.state.developers.map(dev=><DeveloperBio developer={dev} key={dev.id} />)
+            this.state.developers.map((dev, index)=><DeveloperBio developer={dev} key={index} />)
         );
     }
 }
