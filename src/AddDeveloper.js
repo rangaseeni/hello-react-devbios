@@ -28,6 +28,7 @@ class AddDeveloper extends Component {
             this.state.yearStarted
         );
         this.props.addDeveloper(dev);
+        document.getElementById("devForm").reset();
     }
 
     render() {
