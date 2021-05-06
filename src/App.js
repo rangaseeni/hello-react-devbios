@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import DeveloperBio from './DeveloperBio';
 import DisplayBios from './DisplayBios';
+import AddDeveloper from './AddDeveloper';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           Learn React
         </a>
        <DisplayBios />
+       <AddDeveloper />
       </header>
     </div>
   );
