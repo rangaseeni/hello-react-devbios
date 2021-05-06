@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Developer from './Developer';
 
 class AddDeveloper extends Component {
     constructor(props){
