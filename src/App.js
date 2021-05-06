@@ -10,7 +10,7 @@ class App extends Component{
     super(props);
     this.state = {
         developers: [
-            new Developer(1, "Jason", "Monroe", "JavaScript",1999),
+            new Developer(1, "Jason", "Monroe", "JavaScript", 1999),
             new Developer(2, "Bill", "Gates", "BASIC", 1965)
         ]
     }

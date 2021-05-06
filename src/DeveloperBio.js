@@ -11,7 +11,7 @@ function DeveloperBio(props) {
                     <span className="bold">Favorite Language:</span> {props.developer.favoriteLanguage}
                 </p>
                 <p className="card-text">
-                    <span className="bold">Year Started:</span> {props.developer.yearStart}
+                    <span className="bold">Year Started:</span> {props.developer.yearStarted}
                 </p>
             </div>
         </div>
