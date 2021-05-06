@@ -1,7 +1,6 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import DeveloperBio from './DeveloperBio';
 import DisplayBios from './DisplayBios';
 import AddDeveloper from './AddDeveloper';
 
