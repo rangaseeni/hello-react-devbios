@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Developer from './Developer';
 
 class AddDeveloper extends Component {
     constructor(props){
@@ -17,13 +18,25 @@ class AddDeveloper extends Component {
         });
     }
 
+    handleSubmit = (event) =>{
+        event.preventDefault();
+        let dev = new Developer(
+            null,
+            this.state.firstName,
+            this.state.lastName,
+            this.state.favoriteLanguage,
+            this.state.yearStarted
+        );
+        this.props.addDeveloper(dev);
+    }
+
     render() {
         return (
             <div className="container">
                 <h1>Add Developer Bio</h1>
                 <div className="row">
                     <div className="col-mid-6">
-                        <form id="devForm">
+                        <form id="devForm" onSubmit={this.handleSubmit}>
                             <div className="form-group">
                                 <label htmlFor="firstName">First Name</label>
                                 <input type="text" name="firstName"  className="form-control" onChange={this.handleChange} />
