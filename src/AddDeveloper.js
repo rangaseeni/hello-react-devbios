@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Developer from './Developer';
+import { withRouter } from 'react-router-dom';
 
 class AddDeveloper extends Component {
     constructor(props){
@@ -28,7 +29,23 @@ class AddDeveloper extends Component {
             this.state.yearStarted
         );
         this.props.addDeveloper(dev);
+        this.postDeveloper(dev);
         document.getElementById("devForm").reset();
+        this.props.history.push("/bios");
+    }
+
+    postDeveloper = (dev) => {
+        fetch("https://tech-services-1000201953.uc.r.appspot.com/developer",
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type':'application/json'
+                },
+                body: JSON.stringify(dev)
+            }
+        )
+        .catch(error => console.log("error: "+ error));
+        
     }
 
     render() {
@@ -65,4 +82,4 @@ class AddDeveloper extends Component {
     }
 }
 
-export default AddDeveloper;
+export default withRouter(AddDeveloper);

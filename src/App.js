@@ -16,11 +16,15 @@ class App extends Component{
   constructor(props){
     super(props);
     this.state = {
-        developers: [
-            new Developer(1, "Jason", "Monroe", "JavaScript", 1999),
-            new Developer(2, "Bill", "Gates", "BASIC", 1965)
-        ]
+        developers: []
     }
+  }
+
+  componentDidMount(){
+    fetch("https://tech-services-1000201953.uc.r.appspot.com/developers")
+    .then(response=>response.json())
+    .then(devs=>this.setState({developers:devs}))
+    .catch(error=>console.log("error:" + error));
   }
 
   addDeveloper = (developer) => {
@@ -41,6 +45,7 @@ class App extends Component{
             <Route path="/create-bio">
               <AddDeveloper addDeveloper={this.addDeveloper} />
             </Route>
+            <Route path="*"><div>Page Not Found</div></Route>
           </Switch>
         </Router>
     );
