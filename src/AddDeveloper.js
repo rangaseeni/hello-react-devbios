@@ -40,7 +40,7 @@ class AddDeveloper extends Component {
                         <form id="devForm" onSubmit={this.handleSubmit}>
                             <div className="form-group">
                                 <label htmlFor="firstName">First Name</label>
-                                <input type="text" name="firstName"  className="form-control" onChange={this.handleChange} />
+                                <input type="text" name="firstName" className="form-control" onChange={this.handleChange} />
                             </div>
                             <div className="form-group">
                                 <label htmlFor="lastName">Last Name</label>
