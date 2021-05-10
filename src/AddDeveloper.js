@@ -9,8 +9,25 @@ class AddDeveloper extends Component {
             firstName:'',
             lastName:'',
             favoriteLanguage:'',
-            yearStarted:''
+            yearStarted:null,
+            isDirtyForm: false,
+            isValidForm: false
         }
+    }
+
+    validation = () => {
+        let firstNameValid = this.state.firstName ? true : false;
+        let lastNameValid = this.state.lastName ? true : false;
+        let favoriteLanguageValid = this.state.favoriteLanguage ? true : false;
+        let yearStartedValid = !isNaN(this.state.yearStarted) && this.state.yearStarted;
+    
+        let isValid = firstNameValid && lastNameValid && favoriteLanguageValid && yearStartedValid;
+        let isDirty = firstNameValid || lastNameValid || favoriteLanguageValid || yearStartedValid;
+
+        this.setState({
+            isValidForm: isValid,
+            isDirtyForm: isDirty
+        });      
     }
 
     handleChange = (event) => {
@@ -21,6 +38,11 @@ class AddDeveloper extends Component {
 
     handleSubmit = (event) =>{
         event.preventDefault();
+        this.validation();
+        if(!this.state.isValidForm)
+            return;
+        
+
         let dev = new Developer(
             null,
             this.state.firstName,
@@ -77,6 +99,13 @@ class AddDeveloper extends Component {
                         </form>
                     </div>
                 </div>
+                {
+                    (!this.state.isValidForm && this.state.isDirtyForm)
+                    ?
+                        <div id="errorMessage"  style={{fontSize:'12px',color:'red'}}>All fields must be filled out</div>
+                    :
+                        <div id="errorMessage"></div>
+                }
             </div>
         );
     }
