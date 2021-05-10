@@ -5,10 +5,9 @@ import {
   Route
 } from 'react-router-dom';
 
-import './App.css';
+import '../styles/App.css';
 import DisplayBios from './DisplayBios';
 import AddDeveloper from './AddDeveloper';
-import Developer from './Developer';
 import Home from './Home';
 import Navbar from './Navbar';
 
